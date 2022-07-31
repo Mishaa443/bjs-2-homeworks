@@ -1,15 +1,18 @@
+
 function compareArrays(arr1, arr2) {
-  let result;
+  let result =  arr1.every((n, i) => n === arr2[i]) && arr1.length === arr2.length
 
-  // Ваш код
-
+  
+  console.log(result)
   return result; // boolean
+ 
 }
 
+
 function advancedFilter(arr) {
-  let resultArr;
+  let resultArr = arr.filter((element) =>  element % 3 === 0 && element > 0).map((element) => element * 10) 
 
-  // Ваш код
-
+  
+  console.log(resultArr)
   return resultArr; // array
 }

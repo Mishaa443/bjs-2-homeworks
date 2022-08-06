@@ -16,12 +16,12 @@ Student.prototype.addMark = function(mark) {
     }
 }
 
-Student.prototype.addMarks = function(...mark) {
+Student.prototype.addMarks = function(...marks) {
   if(this.marks === undefined){ 
-    this.marks = mark
+    this.marks = marks
     } else {
       for( let i = 0; i < mark.length; i++){
-        this.marks.push(mark[i])
+        this.marks.push(...marks)
       }
       
     }
@@ -35,8 +35,8 @@ Student.prototype.getAverage = function(){
 }
 
 Student.prototype.exclude = function(reason){
-    delete student1.subject
-    delete student1.marks
+    delete this.subject
+    delete this.marks
     this.excluded = reason
 }
 

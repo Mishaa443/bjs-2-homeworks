@@ -1,43 +1,42 @@
 function Student(name, gender, age) {
-  this.name = name
-  this.gender = gender
-  this.age = age
+  this.name = name;
+  this.gender = gender;
+  this.age = age;
 
 }
 
 Student.prototype.setSubject = function(subjectName) {
-  this.subject = subjectName
+  this.subject = subjectName;
 }
 Student.prototype.addMark = function(mark) {
   if(this.marks === undefined){ 
-    this.marks = [mark]
+    this.marks = [mark];
     } else {
-      this.marks.push(mark)
+      this.marks.push(mark);
     }
 }
 
 Student.prototype.addMarks = function(...marks) {
   if(this.marks === undefined){ 
-    this.marks = marks
+    this.marks = marks;
     } else {
-      for( let i = 0; i < mark.length; i++){
-        this.marks.push(...marks)
-      }
+        this.marks.push(...marks);
       
     }
-}
+  }
+      
+    
 
 Student.prototype.getAverage = function(){
-  let sum = 0
-      sum = this.marks.reduce((a, b) => a + b, 0)
+   let sum = this.marks.reduce((a, b) => a + b, 0);
   
    return sum / this.marks.length
 }
 
 Student.prototype.exclude = function(reason){
-    delete this.subject
-    delete this.marks
-    this.excluded = reason
+    delete this.subject;
+    delete this.marks;
+    this.excluded = reason;
 }
 
 

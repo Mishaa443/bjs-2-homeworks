@@ -1,49 +1,35 @@
-
 function parseCount(value){
     let parseInt = Number.parseInt(value)
-    
-    try{
-    if (isNaN(parseInt) ){
-        
-    } 
+    if(isNaN(parseInt)) {
+        throw new Error ("Невалидное значение")
+    }
     return parseInt
-    }
-    catch(e){
-        return e
-    }
+    
     
 }
 
 
 function validateCount(value){
-    let parseInt = parseCount(value)
-    return parseInt
+    try{
+        let parseInt = parseCount(value)
+        return parseInt
+        } 
+        catch(Error){
+            return Error
+        }
+        
+   
 }
 
 
 class Triangle{
-    constructor(a, b ,c){
+    constructor(a, b , c){
         this.a = a;
         this.b = b;
         this.c = c;
-        if (this.a + this.b > this.c){   
+        if (a + b < c || b + c < a  || a + c < b){ 
+            throw new Error ("Треугольник с такими сторонами не существует")
         }
-        else{
-            throw new Error("Треугольник с такими сторонами не существует")
-            }
-        if(this.b + this.c > this.a){
-            }
-        else{
-                throw new Error("Треугольник с такими сторонами не существует")  
-            }
-            if(this.b + this.c > this.a){
-            }
-            if(this.a + this.c > this.b){
-            }
-        else{
-                throw new Error("Треугольник с такими сторонами не существует")  
-            }
-
         
     }
 
@@ -51,13 +37,11 @@ class Triangle{
         return this.a + this.b + this.c
     }
     getArea(){
-        let p = 0.5 * (this.a + this.b + this.c)
-        let s = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)) 
-        return s.toFixed(2) 
+        let p = 0.5 * this.getPerimeter();
+        let s = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));  
+        return +s.toFixed(3) 
     }
 }
-        
-
 
 function getTriangle(a, b, c){
     try{
@@ -69,7 +53,7 @@ function getTriangle(a, b, c){
                 return "Ошибка! Треугольник не существует";
             }, 
              getArea(){
-               return "Ошибка! Треугольник не существует"
+               return "Ошибка! Треугольник не существует";
              }
         }
     }
